@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>File Server 1.0.0</title>
+<meta charset="UTF-8" />
+<link rel="styleSheet" type="text/css" href="css/main.css" />
+</head>
+<body>
+<div id="container">
+	<h1>File Server 1.0.0</h1>
+	
+	<div id="content">
+		<div id="side-box">
+		<img src="img/indicator.png" />			
+		</div>
+		<div id="content-container">
+		<div id="content-upload">
+			<table class="buttons">
+				<tr class="buttons"> <td><div id="select_file_display"></div></td>				
+				<td><div id="upload_file_display"></div></td>
+				<td><div id="download_file_display"></div></td></tr>
+			</table>
+			<form ENCTYPE="multipart/form-data" method="post">
+				<input id="select_file" name="file" multiple accept="*/*" type="file"></input>
+				<input id="upload_file" type="submit" value="" /></br>	
+				
+			</form>
+			
+		</div>
+		<script>   
+        var domUploadBox = document.getElementById('select_file_display')
+        var domUploadInput = document.getElementById('select_file')
+        domUploadBox.addEventListener('click', refsInput)
+        function refsInput () {
+           domUploadInput.click();
+        } 
+		
+		var UploadBox = document.getElementById('upload_file')
+        var UploadInput = document.getElementById('upload_file_display')
+		UploadBox.addEventListener('click',refUpload)
+		function refUpload () {
+           UploadInput.click();
+        } 
+		</script>
+
+		<div id="content-list">
+			
+			<form action="/cgi-bin/get_checked.py" method="POST" target="_blank">
+				<input id="download_file" type="submit" value="Download Selected"/></br>
+				<table>
+				<!-- <tbody><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/035.jpg"></td>
+				<td><dd><div class="file_icon" style="background-image: url(img/landskape_normal.png)"></div><a href="cgi-bin/play_video.py?path=/035.jpg">035.jpg</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/cgi-bin/"></td><td><dd><a href="cgi-bin/play_video.py?path=/cgi-bin/">cgi-bin/</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/css/"></td><td><dd><a href="cgi-bin/play_video.py?path=/css/">css/</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/Main.html"></td><td><dd><a href="cgi-bin/play_video.py?path=/Main.html">Main.html</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/movie.ogg"></td><td><dd><a href="cgi-bin/play_video.py?path=/movie.ogg">movie.ogg</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/play_video.html"></td><td><dd><a href="cgi-bin/play_video.py?path=/play_video.html">play_video.html</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/post_status.html"></td><td><dd><a href="cgi-bin/play_video.py?path=/post_status.html">post_status.html</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/035.jpg"></td><td><dd><a href="cgi-bin/play_video.py?path=/035.jpg">035.jpg</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/cgi-bin/"></td><td><dd><a href="cgi-bin/play_video.py?path=/cgi-bin/">cgi-bin/</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/css/"></td><td><dd><a href="cgi-bin/play_video.py?path=/css/">css/</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/Main.html"></td><td><dd><a href="cgi-bin/play_video.py?path=/Main.html">Main.html</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/movie.ogg"></td><td><dd><a href="cgi-bin/play_video.py?path=/movie.ogg">movie.ogg</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/play_video.html"></td><td><dd><a href="cgi-bin/play_video.py?path=/play_video.html">play_video.html</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/post_status.html"></td><td><dd><a href="cgi-bin/play_video.py?path=/post_status.html">post_status.html</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/server.py"></td><td><dd><a href="cgi-bin/play_video.py?path=/server.py">server.py</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/server.pyc"></td><td><dd><a href="cgi-bin/play_video.py?path=/server.pyc">server.pyc</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/test/"></td><td><dd><a href="cgi-bin/play_video.py?path=/test/">test/</a></dd></td>
+				
+				</tr><tr>
+				<td style="width:2em;"><input class="check" type="checkbox" name="check_box_post" value="/webPages/"></td><td><dd><a href="cgi-bin/play_video.py?path=/webPages/">webPages/</a></dd></td>
+				
+				</tr>
+				</tbody> -->%s</table>
+			</form>
+			
+			
+			
+		</div>
+		</div>
+	</div>
+	
+</div>	
+</body>
+
+</html>
